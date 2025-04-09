@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flavors For Royalty - Master Chefs</title>
+  <meta name="description" content="Meet the culinary artists behind our royal Indian dining experience">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Animate on Scroll -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <style>
+    /* Additional Custom Styles */
+    :root {
+      --gold: #D4AF37;
+      --deep-red: #8B0000;
+      --off-white: #F5F5F5;
+      --dark-charcoal: #333333;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark-charcoal);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: url('./assets/images/hero-slider-3.jpg') center/cover no-repeat fixed;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: -1;
+    }
+
+    .main-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-chefs {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                  url('./assets/images/hero-slider-1.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-chefs::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('./assets/images/spice-overlay.png') center/cover;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .hero-chefs h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-chefs p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .section {
+      padding: 5rem 0;
+      background-color: rgba(15, 15, 15, 0.9);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .chef-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .chef-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      position: relative;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .chef-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .chef-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.7));
+      z-index: 1;
+    }
+
+    .chef-img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .chef-card:hover .chef-img {
+      transform: scale(1.05);
+    }
+
+    .chef-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 2rem;
+      color: white;
+      z-index: 2;
+    }
+
+    .chef-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .chef-info .title {
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .chef-info p {
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      max-height: 0;
+      transition: all 0.5s ease;
+    }
+
+    .chef-card:hover .chef-info p {
+      opacity: 1;
+      max-height: 200px;
+    }
+
+    .signature {
+      width: 120px;
+      opacity: 0.9;
+      margin-top: 1rem;
+      transition: all 0.5s ease;
+      transform: translateY(20px);
+    }
+
+    .chef-card:hover .signature {
+      transform: translateY(0);
+    }
+
+    .philosophy-section {
+      background: var(--deep-red);
+      color: white;
+      position: relative;
+    }
+
+    .philosophy-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('./assets/images/indian-pattern.png') center/cover;
+      opacity: 0.1;
+    }
+
+    .philosophy-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .philosophy-title::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 3px;
+      background: var(--gold);
+      margin: 1rem auto 0;
+    }
+
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .philosophy-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .philosophy-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .philosophy-icon {
+      font-size: 3rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .philosophy-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .achievements-section {
+      background: url('./assets/images/hero-slider-2.jpg') center/cover fixed;
+      position: relative;
+      color: white;
+    }
+
+    .achievements-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .achievements-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+      color: var(--gold);
+    }
+
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .achievement-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .achievement-card:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-5px);
+    }
+
+    .achievement-icon {
+      font-size: 2.5rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .achievement-text {
+      font-size: 1.1rem;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--dark-charcoal);
+      padding: 12px 30px;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-gold:hover {
+      background: #c9a227;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 15px 0;
+      transition: all 0.3s ease;
+    }
+
+    .header.scrolled {
+      padding: 10px 0;
+      background: rgba(0, 0, 0, 0.9);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .reservation {
+      background-color: rgba(15, 15, 15, 0.9);
+    }
+
+    .reservation-form {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .hero-chefs h1 {
+        font-size: 3rem;
+      }
+      
+      .chef-info h3 {
+        font-size: 1.5rem;
+      }
+
+      body {
+        background-attachment: scroll;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="spice-animation">
+      <img src="./assets/images/cinnamon.png" alt="" class="spice spice-1">
+      <img src="./assets/images/cardamom.png" alt="" class="spice spice-2">
+      <img src="./assets/images/clove.png" alt="" class="spice spice-3">
+    </div>
+    <h2 class="loading-text">Flavors For Royalty</h2>
+  </div>
+
+  <!-- Navigation -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="./assets/images/logo-gold.png" width="180" alt="Flavors For Royalty">
+      </a>
+
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="chefs.html" class="active">Our Chefs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-cta">
+        <a href="#reservation" class="btn btn-gold">Find A Table</a>
+      </div>
+
+      <button class="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Hero Section -->
+    <section class="hero-chefs" data-aos="fade">
+      <div class="hero-content">
+        <h1>Our Master Chefs</h1>
+        <p>The culinary artists who bring royal flavors to your plate with passion and precision</p>
+        <a href="#chefs" class="btn btn-gold">Meet The Team</a>
+      </div>
+    </section>
+
+    <!-- Chefs Grid -->
+    <section class="section" id="chefs">
+      <div class="container">
+        <div class="chef-grid">
+          <!-- Chef 1 -->
+          <div class="chef-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="./assets/images/chef-rajiv.jpg" alt="Chef Rajiv Kapoor" class="chef-img">
+            <div class="chef-info">
+              <h3>Rajiv Kapoor</h3>
+              <span class="title">Executive Chef</span>
+              <p>With 25+ years mastering Mughlai cuisine, Chef Rajiv brings authentic Awadhi flavors from Lucknow's royal kitchens to your plate.</p>
+              <img src="./assets/images/signature-1.png" alt="Signature" class="signature">
+            </div>
+          </div>
+
+          <!-- Chef 2 -->
+          <div class="chef-card" data-aos="fade-up" data-aos-delay="200">
+            <img src="./assets/images/chef-priya.jpg" alt="Chef Priya Sharma" class="chef-img">
+            <div class="chef-info">
+              <h3>Priya Sharma</h3>
+              <span class="title">Sous Chef</span>
+              <p>Master of South Indian cuisine, Chef Priya blends traditional recipes with modern presentation for an unforgettable coastal dining experience.</p>
+              <img src="./assets/images/signature-2.png" alt="Signature" class="signature">
+            </div>
+          </div>
+
+          <!-- Chef 3 -->
+          <div class="chef-card" data-aos="fade-up" data-aos-delay="300">
+            <img src="./assets/images/chef-arjun.jpg" alt="Chef Arjun Patel" class="chef-img">
+            <div class="chef-info">
+              <h3>Arjun Patel</h3>
+              <span class="title">Pastry Chef</span>
+              <p>The creative genius behind our desserts, transforming traditional Indian sweets into contemporary masterpieces that delight all senses.</p>
+              <img src="./assets/images/signature-3.png" alt="Signature" class="signature">
+            </div>
+          </div>
+
+          <!-- Chef 4 -->
+          <div class="chef-card" data-aos="fade-up" data-aos-delay="400">
+            <img src="./assets/images/chef-meena.jpg" alt="Chef Meena Desai" class="chef-img">
+            <div class="chef-info">
+              <h3>Meena Desai</h3>
+              <span class="title">Tandoor Specialist</span>
+              <p>Hailing from Punjab, Chef Meena's expertise with the tandoor creates succulent kebabs and breads that keep guests coming back.</p>
+              <img src="./assets/images/signature-4.png" alt="Signature" class="signature">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="section philosophy-section" data-aos="fade">
+      <div class="container">
+        <h2 class="philosophy-title">Our Culinary Philosophy</h2>
+        
+        <div class="philosophy-grid">
+          <div class="philosophy-card" data-aos="zoom-in" data-aos-delay="100">
+            <div class="philosophy-icon">
+              <ion-icon name="leaf-outline"></ion-icon>
+            </div>
+            <h3>Seasonal & Fresh</h3>
+            <p>We source the finest seasonal ingredients from local farmers and trusted suppliers across India.</p>
+          </div>
+          
+          <div class="philosophy-card" data-aos="zoom-in" data-aos-delay="200">
+            <div class="philosophy-icon">
+              <ion-icon name="time-outline"></ion-icon>
+            </div>
+            <h3>Traditional Methods</h3>
+            <p>Using time-honored techniques perfected over generations in royal kitchens.</p>
+          </div>
+          
+          <div class="philosophy-card" data-aos="zoom-in" data-aos-delay="300">
+            <div class="philosophy-icon">
+              <ion-icon name="heart-outline"></ion-icon>
+            </div>
+            <h3>Passion & Precision</h3>
+            <p>Every dish is prepared with meticulous attention to detail and genuine love for Indian cuisine.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="section achievements-section" data-aos="fade">
+      <div class="container">
+        <h2 class="achievements-title">Our Recognitions</h2>
+        
+        <div class="achievements-grid">
+          <div class="achievement-card" data-aos="fade-right" data-aos-delay="100">
+            <div class="achievement-icon">
+              <ion-icon name="trophy-outline"></ion-icon>
+            </div>
+            <p class="achievement-text">Winner of National Culinary Excellence Awards 2023</p>
+          </div>
+          
+          <div class="achievement-card" data-aos="fade-right" data-aos-delay="200">
+            <div class="achievement-icon">
+              <ion-icon name="star-outline"></ion-icon>
+            </div>
+            <p class="achievement-text">5-Star Hygiene Rating for 6 consecutive years</p>
+          </div>
+          
+          <div class="achievement-card" data-aos="fade-right" data-aos-delay="300">
+            <div class="achievement-icon">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <p class="achievement-text">Featured in "Top 50 Restaurants in India" by Gourmet Today</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section class="section reservation" id="reservation">
+      <div class="container">
+        <div class="form reservation-form">
+          <form id="reservation-form" class="form-left">
+            <h2 class="headline-1 text-center">Online Reservation</h2>
+            <p class="form-text text-center">
+              Booking request <a href="tel:+91123123456" class="link">+91-123-123456</a>
+              or fill out the order form
+            </p>
+
+            <div class="input-wrapper">
+              <input type="text" name="name" placeholder="Your Name" autocomplete="off" class="input-field" required>
+              <input type="tel" name="phone" placeholder="Phone Number" autocomplete="off" class="input-field" required>
+            </div>
+
+            <div class="input-wrapper">
+              <div class="icon-wrapper">
+                <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+                <select name="person" class="input-field" required>
+                  <option value="1-person">1 Person</option>
+                  <option value="2-person">2 Person</option>
+                  <option value="3-person">3 Person</option>
+                  <option value="4-person">4 Person</option>
+                  <option value="5-person">5 Person</option>
+                  <option value="6-person">6 Person</option>
+                  <option value="7-person">7 Person</option>
+                </select>
+                <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
+              </div>
+
+              <div class="icon-wrapper">
+                <ion-icon name="calendar-clear-outline" aria-hidden="true"></ion-icon>
+                <input type="date" name="reservation-date" class="input-field" required>
+                <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
+              </div>
+
+              <div class="icon-wrapper">
+                <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+                <select name="time" class="input-field" required>
+                  <option value="08:00am">08 : 00 am</option>
+                  <option value="09:00am">09 : 00 am</option>
+                  <option value="10:00am">10 : 00 am</option>
+                  <option value="11:00am">11 : 00 am</option>
+                  <option value="12:00pm">12 : 00 pm</option>
+                  <option value="01:00pm">01 : 00 pm</option>
+                  <option value="02:00pm">02 : 00 pm</option>
+                  <option value="03:00pm">03 : 00 pm</option>
+                  <option value="04:00pm">04 : 00 pm</option>
+                  <option value="05:00pm">05 : 00 pm</option>
+                  <option value="06:00pm">06 : 00 pm</option>
+                  <option value="07:00pm">07 : 00 pm</option>
+                  <option value="08:00pm">08 : 00 pm</option>
+                  <option value="09:00pm">09 : 00 pm</option>
+                  <option value="10:00pm">10 : 00 pm</option>
+                </select>
+                <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
+              </div>
+            </div>
+
+            <textarea name="message" placeholder="Message" autocomplete="off" class="input-field"></textarea>
+
+            <button type="submit" class="btn btn-secondary" id="book-table-btn">
+              <span class="text text-1">Book A Table</span>
+              <span class="text text-2" aria-hidden="true">Book A Table</span>
+            </button>
+          </form>
+
+          <div class="form-right text-center">
+            <h2 class="headline-1 text-center">Contact Us</h2>
+            <p class="contact-label">Booking Request</p>
+            <a href="tel:+88123123456" class="body-1 contact-number hover-underline">+88-123-123456</a>
+            <div class="separator"></div>
+            <p class="contact-label">Location</p>
+            <address class="body-4">
+              Restaurant St, Delicious City, <br>
+              London 9578, UK
+            </address>
+            <p class="contact-label">Lunch Time</p>
+            <p class="body-4">
+              Monday to Sunday <br>
+              11.00 am - 2.30pm
+            </p>
+            <p class="contact-label">Dinner Time</p>
+            <p class="body-4">
+              Monday to Sunday <br>
+              05.00 pm - 10.00pm
+            </p>
+          </div>
+        </div>
+        
+        <div id="confirmation-message" class="text-center" style="display: none;">
+          <h2 class="headline-1">Your table is booked!</h2>
+          <p class="body-4">Thank you for your reservation. We look forward to serving you.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section" data-aos="fade">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready for a Royal Dining Experience?</h2>
+          <p>Book your table now and let our master chefs delight your senses</p>
+          <a href="#reservation" class="btn btn-gold">Find A Table</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="./assets/images/logo-white.png" alt="Flavors For Royalty" class="footer-logo">
+          <p>Where every flavor tells a royal story</p>
+          <div class="social-links">
+            <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="chefs.html">Our Chefs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <address>
+            75, New Agarwal Nagar<br>
+            Janki Nagar, Indore<br>
+            Madhya Pradesh, India
+          </address>
+          <p>+91 123 456 7890</p>
+          <p>reservations@flavorsforroyalty.com</p>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Hours</h3>
+          <p>Monday - Sunday</p>
+          <p>Lunch: 11:30 AM - 3:00 PM</p>
+          <p>Dinner: 6:30 PM - 11:00 PM</p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2023 Flavors For Royalty. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS animation
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+
+    // Preloader
+    window.addEventListener('load', function() {
+      document.querySelector('.preloader').style.opacity = '0';
+      setTimeout(function() {
+        document.querySelector('.preloader').style.display = 'none';
+      }, 500);
+    });
+
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+      document.querySelector('.navbar').classList.toggle('active');
+      this.classList.toggle('active');
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Chef card hover effect for mobile
+    if (window.innerWidth < 768) {
+      const chefCards = document.querySelectorAll('.chef-card');
+      chefCards.forEach(card => {
+        card.addEventListener('click', function() {
+          this.classList.toggle('active');
+        });
+      });
+    }
+
+    // Reservation form submission
+    document.getElementById('reservation-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      document.querySelector('.form.reservation-form').style.display = 'none';
+      document.getElementById('confirmation-message').style.display = 'block';
+    });
+  </script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grilli - Our Menu</title>
+  <meta name="description" content="Explore our exquisite Indian cuisine menu">
+  <link rel="shortcut icon" href="./favicon.jpg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <style>
+    /* Custom styles for menu table */
+    .menu-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+    }
+    
+    .menu-table th {
+      background-color: #222;
+      color: #fff;
+      padding: 1rem;
+      text-align: left;
+    }
+    
+    .menu-table td {
+      padding: 1rem;
+      vertical-align: middle;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .menu-table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    
+    .menu-table tr:hover {
+      background-color: #f1f1f1;
+    }
+    
+    .item-image {
+      width: 120px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    
+    .item-name {
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 0.5rem;
+    }
+    
+    .item-desc {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .item-price {
+      font-weight: 700;
+      color: #c00;
+      white-space: nowrap;
+    }
+    
+    .menu-section {
+      margin-bottom: 3rem;
+    }
+    
+    .section-title {
+      position: relative;
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .section-title:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 3px;
+      background-color: #c00;
+    }
+    
+    .menu-nav {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .menu-nav a {
+      padding: 0.5rem 1.5rem;
+      background: #f1f1f1;
+      color: #333;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+    
+    .menu-nav a:hover,
+    .menu-nav a.active {
+      background: #c00;
+      color: white;
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <div class="preload" data-preaload>
+    <div class="circle"></div>
+    <p class="text">Grilli</p>
+  </div>
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="container">
+      <address class="topbar-item">
+        <div class="icon">
+          <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+        </div>
+        <span class="span">
+          75, New Agarwal Nagar, Janki Nagar, Indore
+        </span>
+      </address>
+
+      <div class="separator"></div>
+
+      <div class="topbar-item item-2">
+        <div class="icon">
+          <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+        </div>
+        <span class="span">Daily : 9.00 am to 10.00 pm</span>
+      </div>
+
+      <a href="tel:+911234567890" class="topbar-item link">
+        <div class="icon">
+          <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+        </div>
+        <span class="span">+91 123 456 7890</span>
+      </a>
+
+      <div class="separator"></div>
+
+      <a href="booking@restaurant.com" class="topbar-item link">
+        <div class="icon">
+          <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+        </div>
+        <span class="span">booking@restaurant.com</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" data-header>
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="./assets/images/logo.svg" width="160" height="50" alt="Grilli - Home">
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <button class="close-btn" aria-label="close menu" data-nav-toggler>
+          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+        <a href="index.html" class="logo">
+          <img src="./assets/images/logo.svg" width="160" height="50" alt="Grilli - Home">
+        </a>
+
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <a href="index.html" class="navbar-link hover-underline">
+              <div class="separator"></div>
+              <span class="span">Home</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="viewourmenu.html" class="navbar-link hover-underline active">
+              <div class="separator"></div>
+              <span class="span">Menus</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="index.html#about" class="navbar-link hover-underline">
+              <div class="separator"></div>
+              <span class="span">About Us</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="index.html#chefs" class="navbar-link hover-underline">
+              <div class="separator"></div>
+              <span class="span">Our Chefs</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="index.html#reservation" class="navbar-link hover-underline">
+              <div class="separator"></div>
+              <span class="span">Contact</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="text-center">
+          <p class="headline-1 navbar-title">Visit Us</p>
+          <address class="body-4">
+            75, New Agarwal Nagar, Janki Nagar, <br>
+            Indore
+          </address>
+          <p class="body-4 navbar-text">Open: 9.30 am - 2.30pm</p>
+          <a href="mailto:booking@grilli.com" class="body-4 sidebar-link">booking@grilli.com</a>
+          <div class="separator"></div>
+          <p class="contact-label">Booking Request</p>
+          <a href="tel:+9199999999" class="body-1 contact-number hover-underline">
+            +91999999999
+          </a>
+        </div>
+      </nav>
+
+      <a href="index.html#reservation" class="btn btn-secondary">
+        <span class="text text-1">Find A Table</span>
+        <span class="text text-2" aria-hidden="true">Find A Table</span>
+      </a>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <!-- Menu Hero Section -->
+      <section class="hero text-center menu-hero" aria-label="menu">
+        <div class="slider-bg">
+          <img src="./assets/images/hero-slider-1.jpg" width="1880" height="950" alt="" class="img-cover">
+        </div>
+        
+        <div class="hero-content">
+          <p class="label-2 section-subtitle">Explore Our</p>
+          <h1 class="display-1 hero-title">Exquisite Menu</h1>
+          <p class="body-2 hero-text">
+            A culinary journey through the flavors of India
+          </p>
+        </div>
+      </section>
+
+      <div class="container">
+        <!-- Menu Navigation -->
+        <div class="menu-nav">
+          <a href="#starters" class="active">Starters</a>
+          <a href="#mains">Main Course</a>
+          <a href="#breads">Breads</a>
+          <a href="#rice">Rice & Biryani</a>
+          <a href="#desserts">Desserts</a>
+          <a href="#drinks">Drinks</a>
+        </div>
+
+        <!-- Starters Section -->
+        <section class="menu-section" id="starters">
+          <h2 class="headline-2 section-title">Starters & Appetizers</h2>
+          
+          <table class="menu-table">
+            <thead>
+              <tr>
+                <th style="width: 120px">Image</th>
+                <th>Item</th>
+                <th style="width: 100px">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><img src="./assets/images/panner tikka.jpg" alt="Paneer Tikka" class="item-image"></td>
+                <td>
+                  <div class="item-name">Paneer Tikka</div>
+                  <div class="item-desc">Cubes of paneer marinated in spices and grilled to perfection</div>
+                </td>
+                <td class="item-price">₹250</td>
+              </tr>
+              <tr>
+                <td><img src="./assets/images/Chicken 65.jpg" alt="Chicken 65" class="item-image"></td>
+                <td>
+                  <div class="item-name">Chicken 65</div>
+                  <div class="item-desc">Spicy, deep-fried chicken appetizer with curry leaves</div>
+                </td>
+                <td class="item-price">₹280</td>
+              </tr>
+              <tr>
+                <td><img src="./assets/images/Vegetable Pakora.jpg" alt="Vegetable Pakora" class="item-image"></td>
+                <td>
+                  <div class="item-name">Vegetable Pakora</div>
+                  <div class="item-desc">Seasonal vegetables dipped in spiced chickpea batter and fried</div>
+                </td>
+                <td class="item-price">₹180</td>
+              </tr>
+              <tr>
+                <td><img src="./assets/images/Tandoori Chicken.jpg" alt="Tandoori Chicken" class="item-image"></td>
+                <td>
+                  <div class="item-name">Tandoori Chicken</div>
+                  <div class="item-desc">Chicken marinated in yogurt and spices, cooked in clay oven</div>
+                </td>
+                <td class="item-price">₹320</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Main Course Section -->
+        <section class="menu-section" id="mains">
+          <h2 class="headline-2 section-title">Main Course</h2>
+          
+          <table class="menu-table">
+            <thead>
+              <tr>
+                <th style="width: 120px">Image</th>
+                <th>Item</th>
+                <th style="width: 100px">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><img src="./assets/images/Butter Chicken.jpg" alt="Butter Chicken" class="item-image"></td>
+                <td>
+                  <div class="item-name">Butter Chicken</div>
+                  <div class="item-desc">Tender chicken in creamy tomato and butter sauce</div>
+                </td>
+                <td class="item-price">₹350</td>
+              </tr>
+              <tr>
+                <td><img src="./assets/images/Shahi Paneer.jpg" alt="Shahi Paneer" class="item-image"></td>
+                <td>
+                  <div class="item-name">Shahi Paneer</div>
+                  <div class="item-desc">Paneer cubes in rich cashew and cream gravy</div>
+                </td>
+                <td class="item-price">₹280</td>
+              </tr>
+              <tr>
+                <td><img src="./assets/images/Rogan Josh.jpg" alt="Rogan Josh" class="item-image"></td>
+                <td>
+                  <div class="item-name">Rogan Josh</div>
+                  <div class="item-desc">Aromatic lamb curry from Kashmir with rich gravy</div>
+                </td>
+                <td class="item-price">₹380</td>
+              </tr>
+              <tr>
+                <td><img src="./assets/images/Dal Makhani.jpg" alt="Dal Makhani" class="item-image"></td>
+                <td>
+                  <div class="item-name">Dal Makhani</div>
+                  <div class="item-desc">Slow-cooked black lentils with butter and cream</div>
+                </td>
+                <td class="item-price">₹220</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Breads Section -->
+        <section class="menu-section" id="breads">
+          <h2 class="headline-2 section-title">Indian Breads</h2>
+          
+          <table class="menu-table">
+            <thead>
+              <tr>
+                <th style="width: 120px">Image</th>
+                <th>Item</th>
+                <th style="width: 100px">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><img src="./assets/images/Garlic Naan.jpg" alt="Garlic Naan" class="item-image"></td>
+                <td>
+                  <div class="item-name">Garlic Naan</div>
+                  <div class="item-desc">Leavened bread topped with garlic and butter</div>
+                </td>
+                <td class="item-price">₹60</td>
+              </tr>
+              <tr>
+                <td><img src="./assets/images/Butter Roti.jpg" alt="Butter Roti" class="item-image"></td>
+                <td>
+                  <div class="item-name">Butter Roti</div>
+                  <div class="item-desc">Whole wheat bread brushed with butter</div>
+                </td>
+                <td class="item-price">₹40</td>
+              </tr>
+              <tr>
+                <td><img src="./assets/images/Laccha Paratha.jpg" alt="Laccha Paratha" class="item-image"></td>
+                <td>
+                  <div class="item-name">Laccha Paratha</div>
+                  <div class="item-desc">Flaky layered bread cooked with ghee</div>
+                </td>
+                <td class="item-price">₹70</td>
+              </tr>
+              <tr>
+                <td><img src="./assets/images/Tandoori Roti.webp" alt="Tandoori Roti" class="item-image"></td>
+                <td>
+                  <div class="item-name">Tandoori Roti</div>
+                  <div class="item-desc">Whole wheat bread cooked in clay oven</div>
+                </td>
+                <td class="item-price">₹50</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Rice & Biryani Section -->
+        <section class="menu-section" id="rice">
+          <h2 class="headline-2 section-title">Rice & Biryani</h2>
+          
+          <table class="menu-table">
+            <thead>
+              <tr>
+                <th style="width: 120px">Image</th>
+                <th>Item</th>
+                <th style="width: 100px">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><img src="./assets/images/Hyderabadi Biryani.jpg" alt="Hyderabadi Biryani" class="item-image"></td>
+                <td>
+                  <div class="item-name">Hyderabadi Biryani</div>
+                  <div class="item-desc">Fragrant basmati rice with chicken and spices, dum cooked</div>
+                </td>
+                <td class="item-price">₹399</td>
+              </tr>
+              <tr>
+                <td><img src="./assets/images/Veg Biryani.jpg" alt="Veg Biryani" class="item-image"></td>
+                <td>
+                  <div class="item-name">Veg Biryani</div>
+                  <div class="item-desc">Aromatic rice with mixed vegetables and spices</div>
+                </td>
+                <td class="item-price">₹299</td>
+              </tr>
+              <tr>
+                <td><img src="./assets/images/Mutton Biryani.jpg" alt="Mutton Biryani" class="item-image"></td>
+                <td>
+                  <div class="item-name">Mutton Biryani</div>
+                  <div class="item-desc">Tender mutton pieces layered with fragrant rice</div>
+                </td>
+                <td class="item-price">₹450</td>
+              </tr>
+              <tr>
+                <td><img src="./assets/images/Jeera Rice.jpg" alt="Jeera Rice" class="item-image"></td>
+                <td>
+                  <div class="item-name">Jeera Rice</div>
+                  <div class="item-desc">Basmati rice tempered with cumin seeds</div>
+                </td>
+                <td class="item-price">₹150</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Desserts Section -->
+        <section class="menu-section" id="desserts">
+          <h2 class="headline-2 section-title">Desserts</h2>
+          
+          <table class="menu-table">
+            <thead>
+              <tr>
+                <th style="width: 120px">Image</th>
+                <th>Item</th>
+                <th style="width: 100px">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><img src="./assets/images/Gulab Jamun.jpg" alt="Gulab Jamun" class="item-image"></td>
+                <td>
+                  <div class="item-name">Gulab Jamun</div>
+                  <div class="item-desc">Soft milk dumplings soaked in sugar syrup</div>
+                </td>
+                <td class="item-price">₹120</td>
+              </tr>
+              <tr>
+                <td><img src="./assets/images/Rasmalai.jpg" alt="Rasmalai" class="item-image"></td>
+                <td>
+                  <div class="item-name">Rasmalai</div>
+                  <div class="item-desc">Soft cottage cheese patties in sweetened milk</div>
+                </td>
+                <td class="item-price">₹140</td>
+              </tr>
+              <tr>
+                <td><img src="./assets/images/Kheer.jpg" alt="Kheer" class="item-image"></td>
+                <td>
+                  <div class="item-name">Kheer</div>
+                  <div class="item-desc">Traditional rice pudding with nuts and cardamom</div>
+                </td>
+                <td class="item-price">₹100</td>
+              </tr>
+              <tr>
+                <td><img src="./assets/images/Gajar Halwa.webp" alt="Gajar Halwa" class="item-image"></td>
+                <td>
+                  <div class="item-name">Gajar Halwa</div>
+                  <div class="item-desc">Carrot pudding cooked with milk and dry fruits</div>
+                </td>
+                <td class="item-price">₹150</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Drinks Section -->
+        <section class="menu-section" id="drinks">
+          <h2 class="headline-2 section-title">Drinks</h2>
+          
+          <table class="menu-table">
+            <thead>
+              <tr>
+                <th style="width: 120px">Image</th>
+                <th>Item</th>
+                <th style="width: 100px">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><img src="./assets/images/Mango Lassi.jpg" alt="Mango Lassi" class="item-image"></td>
+                <td>
+                  <div class="item-name">Mango Lassi</div>
+                  <div class="item-desc">Sweet yogurt drink with mango pulp</div>
+                </td>
+                <td class="item-price">₹120</td>
+              </tr>
+              <tr>
+                <td><img src="./assets/images/Masala Chai.jpg" alt="Masala Chai" class="item-image"></td>
+                <td>
+                  <div class="item-name">Masala Chai</div>
+                  <div class="item-desc">Spiced Indian tea with milk</div>
+                </td>
+                <td class="item-price">₹60</td>
+              </tr>
+              <tr>
+                <td><img src="./assets/images/Nimbu Pani.jpg" alt="Nimbu Pani" class="item-image"></td>
+                <td>
+                  <div class="item-name">Nimbu Pani</div>
+                  <div class="item-desc">Refreshing lemonade with mint and spices</div>
+                </td>
+                <td class="item-price">₹80</td>
+              </tr>
+              <tr>
+                <td><img src="./assets/images/Thandai.jpg" alt="Thandai" class="item-image"></td>
+                <td>
+                  <div class="item-name">Thandai</div>
+                  <div class="item-desc">Traditional milk drink with nuts and spices</div>
+                </td>
+                <td class="item-price">₹150</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="text-center" style="margin: 3rem 0;">
+          <h2 class="headline-1 section-title">Hungry Yet?</h2>
+          <p class="section-text">Reserve your table now for an unforgettable dining experience</p>
+          <a href="index.html#reservation" class="btn btn-primary">
+            <span class="text text-1">Book A Table</span>
+            <span class="text text-2" aria-hidden="true">Book A Table</span>
+          </a>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer section has-bg-image text-center"
+    style="background-image: url('./assets/images/footer-bg.jpg')">
+    <div class="container">
+      <div class="footer-top grid-list">
+        <div class="footer-brand has-before has-after">
+          <a href="index.html" class="logo">
+            <img src="./assets/images/logo.svg" width="160" height="50" loading="lazy" alt="grilli home">
+          </a>
+
+          <address class="body-4">
+            75, New Agarwal Nagar, Janki Nagar, Indore
+          </address>
+
+          <a href="mailto:booking@grilli.com" class="body-4 contact-link">booking@grilli.com</a>
+          <a href="tel:+88123123456" class="body-4 contact-link">Booking Request : +88-123-123456</a>
+
+          <p class="body-4">
+            Open : 09:00 am - 10:00 pm
+          </p>
+
+          <div class="wrapper">
+            <div class="separator"></div>
+            <div class="separator"></div>
+            <div class="separator"></div>
+          </div>
+
+          <p class="title-1">Get News & Offers</p>
+          <p class="label-1">
+            Subscribe us & Get <span class="span">25% Off.</span>
+          </p>
+
+          <form action="" class="input-wrapper">
+            <div class="icon-wrapper">
+              <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+              <input type="email" name="email_address" placeholder="Your email" autocomplete="off" class="input-field">
+            </div>
+            <button type="submit" class="btn btn-secondary">
+              <span class="text text-1">Subscribe</span>
+              <span class="text text-2" aria-hidden="true">Subscribe</span>
+            </button>
+          </form>
+        </div>
+
+        <ul class="footer-list">
+          <li>
+            <a href="index.html" class="label-2 footer-link hover-underline">Home</a>
+          </li>
+          <li>
+            <a href="viewourmenu.html" class="label-2 footer-link hover-underline">Menus</a>
+          </li>
+          <li>
+            <a href="index.html#about" class="label-2 footer-link hover-underline">About Us</a>
+          </li>
+          <li>
+            <a href="ourchefs.html" class="label-2 footer-link hover-underline">Our Chefs</a>
+          </li>
+          <li>
+            <a href="index.html#reservation" class="label-2 footer-link hover-underline">Contact</a>
+          </li>
+        </ul>
+
+        <ul class="footer-list">
+          <li>
+            <a href="#" class="label-2 footer-link hover-underline">Facebook</a>
+          </li>
+          <li>
+            <a href="#" class="label-2 footer-link hover-underline">Instagram</a>
+          </li>
+          <li>
+            <a href="#" class="label-2 footer-link hover-underline">Twitter</a>
+          </li>
+          <li>
+            <a href="#" class="label-2 footer-link hover-underline">Youtube</a>
+          </li>
+          <li>
+            <a href="#" class="label-2 footer-link hover-underline">Google Map</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">
+          &copy; 2025f Grilli. All Rights Reserved
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <a href="#top" class="back-top-btn active" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+  </a>
+
+  <!-- Custom js link -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- Ionicon link -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    // Smooth scrolling for menu categories
+    document.querySelectorAll('.menu-nav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        document.querySelector(targetId).scrollIntoView({
+          behavior: 'smooth'
+        });
+        
+        // Update active category
+        document.querySelectorAll('.menu-nav a').forEach(el => el.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+    
+    // Highlight current category while scrolling
+    const sections = document.querySelectorAll('.menu-section');
+    const navLinks = document.querySelectorAll('.menu-nav a');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (pageYOffset >= (sectionTop - 150)) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
